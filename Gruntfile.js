@@ -2,6 +2,9 @@
 module.exports = function(grunt) {
 	var port = grunt.option('port') || 8000;
 	// Project configuration
+
+	require('load-grunt-tasks')(grunt);
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		meta: {
@@ -77,10 +80,19 @@ module.exports = function(grunt) {
 		},
 
 		connect: {
-			server: {
+			options: {
+				port: port,
+				open: true,
+				livereload: 35729,
+				hostname: 'localhost'
+			},
+			livereload: {
 				options: {
-					port: port,
-					base: '.'
+					middleware: function(connect) {
+						return [
+							connect.static('.')
+						];
+					}
 				}
 			}
 		},
@@ -104,20 +116,16 @@ module.exports = function(grunt) {
 			theme: {
 				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
 				tasks: 'themes'
+			},
+			livereload: {
+				options: {
+			    livereload: '<%= connect.options.livereload %>'
+				},
+				files: [ 'index.html' ]
 			}
 		}
 
 	});
-
-	// Dependencies
-	grunt.loadNpmTasks( 'grunt-contrib-qunit' );
-	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
-	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
-	grunt.loadNpmTasks( 'grunt-contrib-watch' );
-	grunt.loadNpmTasks( 'grunt-contrib-sass' );
-	grunt.loadNpmTasks( 'grunt-contrib-connect' );
-	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
 	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit' ] );
@@ -129,7 +137,7 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'package', [ 'default', 'zip' ] );
 
 	// Serve presentation locally
-	grunt.registerTask( 'serve', [ 'connect', 'watch' ] );
+	grunt.registerTask( 'serve', [ 'connect:livereload', 'watch' ] );
 
 	// Run tests
 	grunt.registerTask( 'test', [ 'jshint', 'qunit' ] );
