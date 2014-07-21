@@ -1,231 +1,498 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>SVG - Flexible Interface Graphics Made Easy</title>
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Hakim El Hattab">
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" href="css/reveal.min.css">
-	<link rel="stylesheet" href="css/theme/default.css" id="theme">
-	<!-- For syntax highlighting -->
-	<link rel="stylesheet" href="lib/css/zenburn.css">
-	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-	<script>
-		if( window.location.search.match( /print-pdf/gi ) ) {
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = 'css/print/pdf.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		}
-	</script>
-	<script src="/bower_components/svg.js/dist/svg.min.js"></script>
-	<!--[if lt IE 9]>
-	<script src="lib/js/html5shiv.js"></script>
-	<![endif]-->
+  <meta charset="utf-8">
+  <title>SVG - Flexible Interface Graphics Made Easy</title>
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css" id="theme">
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="/bower_components/svg.js/dist/svg.min.js"></script>
+  <script src="/bower_components/svg-injector/dist/svg-injector.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
 </head>
 <body>
 
 <div class="reveal">
-	<div class="slides">
+  <div class="slides">
 
-		<section>
-			<h1>Scalable Vector Graphics (SVG)</h1>
-			<h3>Flexible Interface Graphics Made Easy</h3>
-			<p>
-				<small>Created by <a href="">Daiwei</a></small>
-			</p>
-		</section>
+    <section>
+      <h1>Scalable Vector Graphics (SVG)</h1>
+      <h3>Flexible Interface Graphics Made Easy</h3>
+      <p>
+        <small>Created by <a href="">Daiwei</a></small>
+      </p>
+    </section>
 
-		<section>
-			<section>
-				<h2>Hello World</h2>
-				<p>Circle, Rect, Text</p>
-				<p>
-					<pre><code data-trim>
+    <section>
+      <section>
+        <h2>Hello World</h2>
+        <p>Circle, Rect, Text</p>
+        <p>
+          <pre><code data-trim>
 <svg>
-	<circle cx="50" cy="50" r="50"></circle>
-	<rect x="110" y="0" width="50" height="100"></rect>`
-	<text x="0" y="150" font-size="40">Hello World</text>
+  <circle cx="50" cy="50" r="50"></circle>
+  <rect x="110" y="0" width="50" height="100"></rect>`
+  <text x="0" y="150" font-size="40">Hello World</text>
 </svg>
-					</code></pre>
-				</p>
-				<p>
-					<svg>
-						<circle cx="50" cy="50" r="50"></circle>
-						<rect x="110" y="0" width="50" height="100"></rect>
-						<text x="0" y="150" font-size="40">Hello World</text>
-					</svg>
-				</p>
-			</section>
+          </code></pre>
+        </p>
+        <p>
+          <svg>
+            <circle cx="50" cy="50" r="50"></circle>
+            <rect x="110" y="0" width="50" height="100"></rect>
+            <text x="0" y="150" font-size="40">Hello World</text>
+          </svg>
+        </p>
+      </section>
 
-			<section>
-				<h2>Arbitrary Path</h2>
-				<pre><code data-trim>
+      <section>
+        <h2>Arbitrary Path</h2>
+        <pre><code data-trim>
 <svg>
-	<!-- Letter 'f' -->
-	<path fill-rule="evenodd" d="M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325
-	c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178
-	c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854
-	c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52
-	C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z" />
-	<!-- ... -->
+  <!-- Letter 'f' -->
+  <path fill-rule="evenodd" d="M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325
+  c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178
+  c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854
+  c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52
+  C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z" />
+  <!-- ... -->
 </svg>
-				</code></pre>
-				<p>
-					<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 43 18" xml:space="preserve">
-						<path fill-rule="evenodd" d="M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325
-							c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178
-							c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854
-							c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52
-							C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z
-							"/>
-						<path fill-rule="evenodd" d="M34.821,10.5c0.022,0.375,0.334,0.676,0.712,0.676
-							c0.131,0,0.259-0.036,0.371-0.105v1.356c-0.262,0.087-0.534,0.133-0.808,0.133c-1.194,0-1.93-0.565-1.931-1.654l-0.006-3.962h1.661
-							v3.47C34.82,10.443,34.821,10.471,34.821,10.5L34.821,10.5z"/>
-						<path fill-rule="evenodd" d="M35.006,5.296c0-0.537-0.458-0.986-0.967-0.986
-							c-0.57,0-0.991,0.437-0.991,0.961c0,0.524,0.446,0.949,0.991,0.949C34.572,6.22,35.006,5.808,35.006,5.296L35.006,5.296z"/>
-						<path fill-rule="evenodd" d="M39.773,9.484c0,0.922-0.458,1.545-1.139,1.545
-							c-0.544,0-0.854-0.374-0.854-1.072c0-1.047,0.533-1.67,1.411-1.67c0.198,0,0.297,0.013,0.582,0.075V9.484z M36.097,9.958
-							c0-1.994,1.262-3.14,3.453-3.14c0.718,0,1.04,0.049,1.795,0.274v2.827v0.327v0.213c0,0.395,0.321,0.718,0.712,0.718h0
-							c0.136,0,0.262-0.039,0.37-0.105v1.411c-0.887,0.283-2.03,0.017-2.353-0.878l-0.011-0.022c-0.03,0.029-0.061,0.066-0.094,0.11
-							c-0.409,0.561-1.002,0.859-1.732,0.859C36.668,12.55,36.097,11.312,36.097,9.958L36.097,9.958z"/>
-						<path fill-rule="evenodd" d="M21.928,9.23v-2.3h1.604v0.509c0.485-0.44,0.985-0.655,1.572-0.655
-							c1.052,0,1.708,0.81,1.708,2.106v1.539v0.001v0.001v0.001v0.001v0.001v0.001v0.001c0,0.021,0,0.042,0.001,0.062
-							c0.022,0.375,0.334,0.676,0.711,0.676c0.132,0,0.259-0.036,0.371-0.105v1.356c-0.261,0.087-0.534,0.133-0.808,0.133
-							c-1.194,0-1.929-0.565-1.931-1.654l-0.002-1.709l-0.001-0.008c0-0.885-0.395-0.935-0.63-0.935c-0.21,0-0.99,0.174-0.99,1.807v2.355
-							v0h-1.604v-0.692V9.23z"/>
-						<path fill-rule="evenodd" d="M19.697,8.575c0,0.423-0.408,0.635-1.188,0.635
-							c-0.124,0-0.198,0-0.347-0.025c0.053-0.356,0.188-0.646,0.377-0.84c0.169-0.172,0.38-0.27,0.613-0.27
-							C19.462,8.076,19.697,8.312,19.697,8.575L19.697,8.575z M16.427,10.498c-0.047-0.185-0.059-0.397-0.059-0.602
-							c0-1.832,1.212-3.091,2.958-3.091c1.213,0,2.017,0.647,2.017,1.645c0,1.134-1.163,1.882-2.933,1.882
-							c-0.074,0-0.185-0.013-0.334-0.013l0,0.006l0.003,0.009h0.001c0.379,1.009,1.891,1.1,2.79,0.499l0.002,0.005
-							c0.119-0.079,0.231-0.166,0.338-0.261l0.131,1.619l-0.053,0.025c-1.187,0.593-3.075,0.666-4.102-0.294
-							c-0.363-0.339-0.615-0.781-0.739-1.327c-0.008-0.03-0.014-0.061-0.02-0.092l-0.001-0.006L16.427,10.498z"/>
-						<path fill-rule="evenodd" d="M10.466,12.027c-0.542-0.606-0.483-1.386-0.483-2.129V6.941h1.535
-							v3.186h-0.004c0.037,0.701,0.401,0.903,0.765,0.903c0.495,0,1.064-0.225,1.064-1.359v-2.73h1.534v2.73l0.008,0.51
-							c0.006,0.427,0.292,0.707,0.686,0.709c0.263,0.002,0.482-0.064,0.601-0.323v1.806c-0.191,0.082-0.393,0.137-0.601,0.162
-							c-0.693,0.082-1.311-0.198-1.717-0.697c-0.034-0.009-0.068-0.017-0.103-0.024c-0.47,0.474-1.114,0.735-1.77,0.735
-							C11.314,12.55,10.805,12.373,10.466,12.027L10.466,12.027z"/>
-						<path fill-rule="evenodd" d="M8.314,10.5c0.022,0.375,0.334,0.676,0.712,0.676
-							c0.131,0,0.259-0.036,0.371-0.105v1.356c-0.261,0.087-0.534,0.133-0.808,0.133c-1.194,0-1.93-0.565-1.931-1.654L6.652,3.322h1.661
-							v7.091C8.313,10.443,8.313,10.471,8.314,10.5L8.314,10.5z"/>
-						<path fill-rule="evenodd" d="M28.092,9.771c0-1.732,0.965-2.953,2.884-2.953
-							c0.767,0,1.225,0.199,1.559,0.398L32.25,8.649c-0.495-0.237-0.619-0.361-1.164-0.361c-0.817,0-1.275,0.561-1.275,1.421
-							c0,0.97,0.573,1.415,1.272,1.46c0.447,0.029,0.945-0.105,1.378-0.37l0.119,1.559c-1.13,0.479-2.678,0.396-3.622-0.441
-							C28.415,11.433,28.092,10.714,28.092,9.771L28.092,9.771z"/>
-					</svg>
-				</p>
-			</section>
-		</section>
+        </code></pre>
+        <p>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 43 18" xml:space="preserve">
+            <path fill-rule="evenodd" d="M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325
+              c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178
+              c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854
+              c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52
+              C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z
+              "/>
+            <path fill-rule="evenodd" d="M34.821,10.5c0.022,0.375,0.334,0.676,0.712,0.676
+              c0.131,0,0.259-0.036,0.371-0.105v1.356c-0.262,0.087-0.534,0.133-0.808,0.133c-1.194,0-1.93-0.565-1.931-1.654l-0.006-3.962h1.661
+              v3.47C34.82,10.443,34.821,10.471,34.821,10.5L34.821,10.5z"/>
+            <path fill-rule="evenodd" d="M35.006,5.296c0-0.537-0.458-0.986-0.967-0.986
+              c-0.57,0-0.991,0.437-0.991,0.961c0,0.524,0.446,0.949,0.991,0.949C34.572,6.22,35.006,5.808,35.006,5.296L35.006,5.296z"/>
+            <path fill-rule="evenodd" d="M39.773,9.484c0,0.922-0.458,1.545-1.139,1.545
+              c-0.544,0-0.854-0.374-0.854-1.072c0-1.047,0.533-1.67,1.411-1.67c0.198,0,0.297,0.013,0.582,0.075V9.484z M36.097,9.958
+              c0-1.994,1.262-3.14,3.453-3.14c0.718,0,1.04,0.049,1.795,0.274v2.827v0.327v0.213c0,0.395,0.321,0.718,0.712,0.718h0
+              c0.136,0,0.262-0.039,0.37-0.105v1.411c-0.887,0.283-2.03,0.017-2.353-0.878l-0.011-0.022c-0.03,0.029-0.061,0.066-0.094,0.11
+              c-0.409,0.561-1.002,0.859-1.732,0.859C36.668,12.55,36.097,11.312,36.097,9.958L36.097,9.958z"/>
+            <path fill-rule="evenodd" d="M21.928,9.23v-2.3h1.604v0.509c0.485-0.44,0.985-0.655,1.572-0.655
+              c1.052,0,1.708,0.81,1.708,2.106v1.539v0.001v0.001v0.001v0.001v0.001v0.001v0.001c0,0.021,0,0.042,0.001,0.062
+              c0.022,0.375,0.334,0.676,0.711,0.676c0.132,0,0.259-0.036,0.371-0.105v1.356c-0.261,0.087-0.534,0.133-0.808,0.133
+              c-1.194,0-1.929-0.565-1.931-1.654l-0.002-1.709l-0.001-0.008c0-0.885-0.395-0.935-0.63-0.935c-0.21,0-0.99,0.174-0.99,1.807v2.355
+              v0h-1.604v-0.692V9.23z"/>
+            <path fill-rule="evenodd" d="M19.697,8.575c0,0.423-0.408,0.635-1.188,0.635
+              c-0.124,0-0.198,0-0.347-0.025c0.053-0.356,0.188-0.646,0.377-0.84c0.169-0.172,0.38-0.27,0.613-0.27
+              C19.462,8.076,19.697,8.312,19.697,8.575L19.697,8.575z M16.427,10.498c-0.047-0.185-0.059-0.397-0.059-0.602
+              c0-1.832,1.212-3.091,2.958-3.091c1.213,0,2.017,0.647,2.017,1.645c0,1.134-1.163,1.882-2.933,1.882
+              c-0.074,0-0.185-0.013-0.334-0.013l0,0.006l0.003,0.009h0.001c0.379,1.009,1.891,1.1,2.79,0.499l0.002,0.005
+              c0.119-0.079,0.231-0.166,0.338-0.261l0.131,1.619l-0.053,0.025c-1.187,0.593-3.075,0.666-4.102-0.294
+              c-0.363-0.339-0.615-0.781-0.739-1.327c-0.008-0.03-0.014-0.061-0.02-0.092l-0.001-0.006L16.427,10.498z"/>
+            <path fill-rule="evenodd" d="M10.466,12.027c-0.542-0.606-0.483-1.386-0.483-2.129V6.941h1.535
+              v3.186h-0.004c0.037,0.701,0.401,0.903,0.765,0.903c0.495,0,1.064-0.225,1.064-1.359v-2.73h1.534v2.73l0.008,0.51
+              c0.006,0.427,0.292,0.707,0.686,0.709c0.263,0.002,0.482-0.064,0.601-0.323v1.806c-0.191,0.082-0.393,0.137-0.601,0.162
+              c-0.693,0.082-1.311-0.198-1.717-0.697c-0.034-0.009-0.068-0.017-0.103-0.024c-0.47,0.474-1.114,0.735-1.77,0.735
+              C11.314,12.55,10.805,12.373,10.466,12.027L10.466,12.027z"/>
+            <path fill-rule="evenodd" d="M8.314,10.5c0.022,0.375,0.334,0.676,0.712,0.676
+              c0.131,0,0.259-0.036,0.371-0.105v1.356c-0.261,0.087-0.534,0.133-0.808,0.133c-1.194,0-1.93-0.565-1.931-1.654L6.652,3.322h1.661
+              v7.091C8.313,10.443,8.313,10.471,8.314,10.5L8.314,10.5z"/>
+            <path fill-rule="evenodd" d="M28.092,9.771c0-1.732,0.965-2.953,2.884-2.953
+              c0.767,0,1.225,0.199,1.559,0.398L32.25,8.649c-0.495-0.237-0.619-0.361-1.164-0.361c-0.817,0-1.275,0.561-1.275,1.421
+              c0,0.97,0.573,1.415,1.272,1.46c0.447,0.029,0.945-0.105,1.378-0.37l0.119,1.559c-1.13,0.479-2.678,0.396-3.622-0.441
+              C28.415,11.433,28.092,10.714,28.092,9.771L28.092,9.771z"/>
+          </svg>
+        </p>
+      </section>
+    </section>
 
-		<section>
-			<section>
-				<h2>SVG.js Hello World</h2>
-				<p>
-					<pre><code data-trim>
+    <section>
+      <section>
+        <h2>SVG.js Hello World</h2>
+        <p>
+          <pre><code data-trim>
 var draw = SVG('svg-js-example-1').size(200, 300);
 draw.circle(100);
 draw.rect(50, 100).move(110);
 draw.text('Hello World').move(0, 120);
-					</code></pre>
-				</p>
-				<div id="svg-js-example-1"></div>
-				<script>
-					var draw = SVG('svg-js-example-1').size(200, 300);
-					draw.circle(100);
-					draw.rect(50, 100).move(110);
-					draw.text('Hello World').move(0, 120);
-				</script>
-			</section>
-			<section>
-				<h2>Also Works with Path</h2>
-				<p>
-					<pre><code>
+          </code></pre>
+        </p>
+        <div id="svg-js-example-1"></div>
+        <script>
+          var draw = SVG('svg-js-example-1').size(200, 300);
+          draw.circle(100);
+          draw.rect(50, 100).move(110);
+          draw.text('Hello World').move(0, 120);
+        </script>
+      </section>
+      <section>
+        <h2>Also Works with Path</h2>
+        <p>
+          <pre><code data-trim>
 var draw = SVG("svg-js-example-2").size(100, 200);
 draw.path("M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325 c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178 c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854 c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52 C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z").scale(10);
-					</code></pre>
-				</p>
-				<div id="svg-js-example-2"></div>
-				<script>
-					var draw = SVG('svg-js-example-2').size(100, 200);
-					draw.path('M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325 c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178 c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854 c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52 C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z').scale(10);
-				</script>
-			</section>
-		</section>
+          </code></pre>
+        </p>
+        <div id="svg-js-example-2"></div>
+        <script>
+          var draw = SVG('svg-js-example-2').size(100, 200);
+          draw.path('M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325 c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178 c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854 c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52 C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z').scale(10);
+        </script>
+      </section>
+    </section>
 
-		<section>
-			<section>
-				<h2>Styling</h2>
-			</section>
-			<section>
-				<h2>Interaction</h2>
-			</section>
-		</section>
+    <section>
+      <section>
+        <h2>Styling</h2>
+        <pre><code data-trim>
+<svg>
+  <path fill="red" d="some path" />
+</svg>
+        </code></pre>
+        <p>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 43 18" xml:space="preserve">
+            <path fill="red" fill-rule="evenodd" d="M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325
+              c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178
+              c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854
+              c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52
+              C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z
+              "/>
+            <path fill="orange" fill-rule="evenodd" d="M34.821,10.5c0.022,0.375,0.334,0.676,0.712,0.676
+              c0.131,0,0.259-0.036,0.371-0.105v1.356c-0.262,0.087-0.534,0.133-0.808,0.133c-1.194,0-1.93-0.565-1.931-1.654l-0.006-3.962h1.661
+              v3.47C34.82,10.443,34.821,10.471,34.821,10.5L34.821,10.5z"/>
+            <path fill="yellow" fill-rule="evenodd" d="M35.006,5.296c0-0.537-0.458-0.986-0.967-0.986
+              c-0.57,0-0.991,0.437-0.991,0.961c0,0.524,0.446,0.949,0.991,0.949C34.572,6.22,35.006,5.808,35.006,5.296L35.006,5.296z"/>
+            <path fill="green" fill-rule="evenodd" d="M39.773,9.484c0,0.922-0.458,1.545-1.139,1.545
+              c-0.544,0-0.854-0.374-0.854-1.072c0-1.047,0.533-1.67,1.411-1.67c0.198,0,0.297,0.013,0.582,0.075V9.484z M36.097,9.958
+              c0-1.994,1.262-3.14,3.453-3.14c0.718,0,1.04,0.049,1.795,0.274v2.827v0.327v0.213c0,0.395,0.321,0.718,0.712,0.718h0
+              c0.136,0,0.262-0.039,0.37-0.105v1.411c-0.887,0.283-2.03,0.017-2.353-0.878l-0.011-0.022c-0.03,0.029-0.061,0.066-0.094,0.11
+              c-0.409,0.561-1.002,0.859-1.732,0.859C36.668,12.55,36.097,11.312,36.097,9.958L36.097,9.958z"/>
+            <path fill="cyan" fill-rule="evenodd" d="M21.928,9.23v-2.3h1.604v0.509c0.485-0.44,0.985-0.655,1.572-0.655
+              c1.052,0,1.708,0.81,1.708,2.106v1.539v0.001v0.001v0.001v0.001v0.001v0.001v0.001c0,0.021,0,0.042,0.001,0.062
+              c0.022,0.375,0.334,0.676,0.711,0.676c0.132,0,0.259-0.036,0.371-0.105v1.356c-0.261,0.087-0.534,0.133-0.808,0.133
+              c-1.194,0-1.929-0.565-1.931-1.654l-0.002-1.709l-0.001-0.008c0-0.885-0.395-0.935-0.63-0.935c-0.21,0-0.99,0.174-0.99,1.807v2.355
+              v0h-1.604v-0.692V9.23z"/>
+            <path fill="blue" fill-rule="evenodd" d="M19.697,8.575c0,0.423-0.408,0.635-1.188,0.635
+              c-0.124,0-0.198,0-0.347-0.025c0.053-0.356,0.188-0.646,0.377-0.84c0.169-0.172,0.38-0.27,0.613-0.27
+              C19.462,8.076,19.697,8.312,19.697,8.575L19.697,8.575z M16.427,10.498c-0.047-0.185-0.059-0.397-0.059-0.602
+              c0-1.832,1.212-3.091,2.958-3.091c1.213,0,2.017,0.647,2.017,1.645c0,1.134-1.163,1.882-2.933,1.882
+              c-0.074,0-0.185-0.013-0.334-0.013l0,0.006l0.003,0.009h0.001c0.379,1.009,1.891,1.1,2.79,0.499l0.002,0.005
+              c0.119-0.079,0.231-0.166,0.338-0.261l0.131,1.619l-0.053,0.025c-1.187,0.593-3.075,0.666-4.102-0.294
+              c-0.363-0.339-0.615-0.781-0.739-1.327c-0.008-0.03-0.014-0.061-0.02-0.092l-0.001-0.006L16.427,10.498z"/>
+            <path fill="purple" fill-rule="evenodd" d="M10.466,12.027c-0.542-0.606-0.483-1.386-0.483-2.129V6.941h1.535
+              v3.186h-0.004c0.037,0.701,0.401,0.903,0.765,0.903c0.495,0,1.064-0.225,1.064-1.359v-2.73h1.534v2.73l0.008,0.51
+              c0.006,0.427,0.292,0.707,0.686,0.709c0.263,0.002,0.482-0.064,0.601-0.323v1.806c-0.191,0.082-0.393,0.137-0.601,0.162
+              c-0.693,0.082-1.311-0.198-1.717-0.697c-0.034-0.009-0.068-0.017-0.103-0.024c-0.47,0.474-1.114,0.735-1.77,0.735
+              C11.314,12.55,10.805,12.373,10.466,12.027L10.466,12.027z"/>
+            <path fill="none" stroke-width=".5" stroke="white" fill-rule="evenodd" d="M8.314,10.5c0.022,0.375,0.334,0.676,0.712,0.676
+              c0.131,0,0.259-0.036,0.371-0.105v1.356c-0.261,0.087-0.534,0.133-0.808,0.133c-1.194,0-1.93-0.565-1.931-1.654L6.652,3.322h1.661
+              v7.091C8.313,10.443,8.313,10.471,8.314,10.5L8.314,10.5z"/>
+            <path fill="white" fill-rule="evenodd" d="M28.092,9.771c0-1.732,0.965-2.953,2.884-2.953
+              c0.767,0,1.225,0.199,1.559,0.398L32.25,8.649c-0.495-0.237-0.619-0.361-1.164-0.361c-0.817,0-1.275,0.561-1.275,1.421
+              c0,0.97,0.573,1.415,1.272,1.46c0.447,0.029,0.945-0.105,1.378-0.37l0.119,1.559c-1.13,0.479-2.678,0.396-3.622-0.441
+              C28.415,11.433,28.092,10.714,28.092,9.771L28.092,9.771z"/>
+          </svg>
+        </p>
+      </section>
+      <section>
+        <h2>Interaction</h2>
+        <pre><code data-trim>
+#svg-styling-example-3 path {
+  transition: all 500ms;
+}
+#svg-styling-example-3 path:hover {
+  fill: pink;
+}
+        </code></pre>
+        <style>
+          #svg-styling-example-3 path {
+            transition: all 500ms;
+          }
+          #svg-styling-example-3 path:hover {
+            fill: pink;
+          }
+        </style>
+        <p>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 43 18" xml:space="preserve" id="svg-styling-example-3">
+            <path fill="red" fill-rule="evenodd" d="M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325
+              c-0.158,0.603-0.604,0.972-1.286,0.972c-0.348,0-0.534-0.048-0.742-0.141L0,15.25c0.292,0.104,0.659,0.178,1.139,0.178
+              c1.747,0,2.745-0.962,2.99-2.398c0.076-0.446,0.061-0.885,0.061-1.334V8.487h1.333V6.942H4.189V3.854
+              c0-0.368-0.035-0.976,0.057-1.325c0.157-0.603,0.603-0.972,1.285-0.972c0.349,0,0.534,0.048,0.742,0.141l0.28-1.52
+              C6.261,0.074,5.895,0,5.414,0c-1.747,0-2.744,0.962-2.99,2.398c-0.076,0.445-0.06,0.885-0.06,1.334v3.209H1.031v1.545h1.333V11.575z
+              "/>
+            <path fill="orange" fill-rule="evenodd" d="M34.821,10.5c0.022,0.375,0.334,0.676,0.712,0.676
+              c0.131,0,0.259-0.036,0.371-0.105v1.356c-0.262,0.087-0.534,0.133-0.808,0.133c-1.194,0-1.93-0.565-1.931-1.654l-0.006-3.962h1.661
+              v3.47C34.82,10.443,34.821,10.471,34.821,10.5L34.821,10.5z"/>
+            <path fill="yellow" fill-rule="evenodd" d="M35.006,5.296c0-0.537-0.458-0.986-0.967-0.986
+              c-0.57,0-0.991,0.437-0.991,0.961c0,0.524,0.446,0.949,0.991,0.949C34.572,6.22,35.006,5.808,35.006,5.296L35.006,5.296z"/>
+            <path fill="green" fill-rule="evenodd" d="M39.773,9.484c0,0.922-0.458,1.545-1.139,1.545
+              c-0.544,0-0.854-0.374-0.854-1.072c0-1.047,0.533-1.67,1.411-1.67c0.198,0,0.297,0.013,0.582,0.075V9.484z M36.097,9.958
+              c0-1.994,1.262-3.14,3.453-3.14c0.718,0,1.04,0.049,1.795,0.274v2.827v0.327v0.213c0,0.395,0.321,0.718,0.712,0.718h0
+              c0.136,0,0.262-0.039,0.37-0.105v1.411c-0.887,0.283-2.03,0.017-2.353-0.878l-0.011-0.022c-0.03,0.029-0.061,0.066-0.094,0.11
+              c-0.409,0.561-1.002,0.859-1.732,0.859C36.668,12.55,36.097,11.312,36.097,9.958L36.097,9.958z"/>
+            <path fill="cyan" fill-rule="evenodd" d="M21.928,9.23v-2.3h1.604v0.509c0.485-0.44,0.985-0.655,1.572-0.655
+              c1.052,0,1.708,0.81,1.708,2.106v1.539v0.001v0.001v0.001v0.001v0.001v0.001v0.001c0,0.021,0,0.042,0.001,0.062
+              c0.022,0.375,0.334,0.676,0.711,0.676c0.132,0,0.259-0.036,0.371-0.105v1.356c-0.261,0.087-0.534,0.133-0.808,0.133
+              c-1.194,0-1.929-0.565-1.931-1.654l-0.002-1.709l-0.001-0.008c0-0.885-0.395-0.935-0.63-0.935c-0.21,0-0.99,0.174-0.99,1.807v2.355
+              v0h-1.604v-0.692V9.23z"/>
+            <path fill="blue" fill-rule="evenodd" d="M19.697,8.575c0,0.423-0.408,0.635-1.188,0.635
+              c-0.124,0-0.198,0-0.347-0.025c0.053-0.356,0.188-0.646,0.377-0.84c0.169-0.172,0.38-0.27,0.613-0.27
+              C19.462,8.076,19.697,8.312,19.697,8.575L19.697,8.575z M16.427,10.498c-0.047-0.185-0.059-0.397-0.059-0.602
+              c0-1.832,1.212-3.091,2.958-3.091c1.213,0,2.017,0.647,2.017,1.645c0,1.134-1.163,1.882-2.933,1.882
+              c-0.074,0-0.185-0.013-0.334-0.013l0,0.006l0.003,0.009h0.001c0.379,1.009,1.891,1.1,2.79,0.499l0.002,0.005
+              c0.119-0.079,0.231-0.166,0.338-0.261l0.131,1.619l-0.053,0.025c-1.187,0.593-3.075,0.666-4.102-0.294
+              c-0.363-0.339-0.615-0.781-0.739-1.327c-0.008-0.03-0.014-0.061-0.02-0.092l-0.001-0.006L16.427,10.498z"/>
+            <path fill="purple" fill-rule="evenodd" d="M10.466,12.027c-0.542-0.606-0.483-1.386-0.483-2.129V6.941h1.535
+              v3.186h-0.004c0.037,0.701,0.401,0.903,0.765,0.903c0.495,0,1.064-0.225,1.064-1.359v-2.73h1.534v2.73l0.008,0.51
+              c0.006,0.427,0.292,0.707,0.686,0.709c0.263,0.002,0.482-0.064,0.601-0.323v1.806c-0.191,0.082-0.393,0.137-0.601,0.162
+              c-0.693,0.082-1.311-0.198-1.717-0.697c-0.034-0.009-0.068-0.017-0.103-0.024c-0.47,0.474-1.114,0.735-1.77,0.735
+              C11.314,12.55,10.805,12.373,10.466,12.027L10.466,12.027z"/>
+            <path fill="none" stroke-width=".5" stroke="white" fill-rule="evenodd" d="M8.314,10.5c0.022,0.375,0.334,0.676,0.712,0.676
+              c0.131,0,0.259-0.036,0.371-0.105v1.356c-0.261,0.087-0.534,0.133-0.808,0.133c-1.194,0-1.93-0.565-1.931-1.654L6.652,3.322h1.661
+              v7.091C8.313,10.443,8.313,10.471,8.314,10.5L8.314,10.5z"/>
+            <path fill="white" fill-rule="evenodd" d="M28.092,9.771c0-1.732,0.965-2.953,2.884-2.953
+              c0.767,0,1.225,0.199,1.559,0.398L32.25,8.649c-0.495-0.237-0.619-0.361-1.164-0.361c-0.817,0-1.275,0.561-1.275,1.421
+              c0,0.97,0.573,1.415,1.272,1.46c0.447,0.029,0.945-0.105,1.378-0.37l0.119,1.559c-1.13,0.479-2.678,0.396-3.622-0.441
+              C28.415,11.433,28.092,10.714,28.092,9.771L28.092,9.771z"/>
+          </svg>
+        </p>
+      </section>
+    </section>
 
-		<section>
-			<h2>Grouping Elements</h2>
-		</section>
+    <section>
+      <section>
+        <h2>Grouping Elements</h2>
+        <!-- &#60; for <      &#62; for > -->
+        <p>Grouping with &#60;p&#62;, &#60;defs&#62;, &#60;symbol&#62;</p>
+        <pre><code data-trim>
+<svg>
+  <g>
+    <circle cx="50" cy="50" r="50"></circle>
+    <rect x="110" y="0" width="50" height="100"></rect>
+  </g>
+  <g>
+    <circle cx="50" cy="50" r="50"></circle>
+    <rect x="110" y="0" width="50" height="100"></rect>
+  </g>
+</svg>
+        </code></pre>
+      </section>
+      <section>
+        <h2>Reuse Elements</h2>
+        <pre><code data-trim>
+<svg>
+  <g id="reuse-element-1">
+    <circle cx="50" cy="50" r="50"></circle>
+    <rect x="110" y="0" width="50" height="100"></rect>
+  </g>
+  <use xlink:href="#reuse-element-1" transform="translate(200, 0)"></use>
+</svg>
+        </code></pre>
+        <p>
+          <svg width="500" height="200">
+            <g id="reuse-element-1">
+              <circle cx="50" cy="50" r="50"></circle>
+              <rect x="110" y="0" width="50" height="100"></rect>
+            </g>
+            <use xlink:href="#reuse-element-1" transform="translate(200, 0)"></use>
+          </svg>
+        </p>
+      </section>
+      <section>
+        <h2>Reuse `defs`</h2>
+        <p>
+          <pre><code data-trim>
+<svg>
+  <defs>
+    <g id="reuse-element-2">
+      <circle cx="50" cy="50" r="50"></circle>
+      <rect x="110" y="0" width="50" height="100"></rect>
+    </g>
+  </defs>
 
-		<section>
-			<h2>Reuse SVG Element</h2>
-		</section>
+  <use xlink:href="#reuse-element-2"></use>
+</svg>
+          </code></pre>
+        </p>
+        <p>
+          <svg>
+            <defs>
+              <g id="reuse-element-2">
+                <circle cx="50" cy="50" r="50"></circle>
+                <rect x="110" y="0" width="50" height="100"></rect>
+              </g>
+            </defs>
 
-		<section>
-			<h2>Coordination System</h2>
-		</section>
+            <use xlink:href="#reuse-element-2"></use>
+          </svg>
+        </p>
+        <p>More than just shapes, can also be `filter` (out of scope)</p>
+      </section>
+    </section>
 
-		<section>
-			<section>
-				<h2>External SVG</h2>
-				<h3>Pro</h3>
-				<h3>Con</h3>
-			</section>
-			<section>
-				<h2>SVG Injection</h2>
-			</section>
-		</section>
+    <section>
+      <h2>Coordination System</h2>
+      <p>
+        <a href="http://sarasoueidan.com/blog/svg-coordinate-systems/" target="_blank">Understanding SVG Coordinate Systems</a>
+      </p>
+      <p>
+        <img src="coordination-system.jpg" alt="">
+      </p>
+    </section>
 
-		<section>
-			<section>
-				<h2>Advanced Feature</h2>
-			</section>
-			<section>
-				<h2>Clip</h2>
-			</section>
-			<section>
-				<h2>Mask</h2>
-			</section>
-		</section>
+    <section>
+      <section>
+        <h2>External SVG</h2>
+        <p>
+          <pre><code data-trim>
+<img src="fluencia.svg">
+          </code></pre>
+        </p>
+        <p>
+          <img src="fluencia.svg">
+        </p>
+      </section>
+      <section>
+        <h3>Pro</h3>
+        <p>
+          <ul>
+            <li>Reduce HTML size</li>
+            <li>Cleaner HTML Source</li>
+            <li>`use` element can reuse elements in external SVG</li>
+          </ul>
+        </p>
+        <h3>Con</h3>
+        <p>
+          <ul>
+            <li>Cannot style SVG element individually</li>
+          </ul>
+        </p>
+      </section>
+      <section>
+        <h2>SVG Injection</h2>
+        <p>
+          <a href="https://github.com/iconic/SVGInjector" target="_blank">SVGInjector</a>
+        </p>
+        <p>
+          <pre><code data-trim>
+<img src="fluencia.svg" id="inject-image-1" class="inject-selector">
+<img src="fluencia.svg" id="inject-image-2" class="inject-selector">
+          </code></pre>
+          <pre><code data-trim>
+var images = document.querySelectorAll('img.inject-example-1');
+SVGInjector(images);
+          </code></pre>
+          <pre><code data-trim>
+#inject-image-1 path {
+  fill: white;
+}
+#inject-image-2 path {
+  fill: blue;
+}
+          </code></pre>
+        </p>
+        <style>
+          #inject-image-1 path {
+            fill: white;
+          }
+          #inject-image-2 path {
+            fill: blue;
+          }
+        </style>
+        <p>
+          <div style="width: 300px; float: left">
+            <img src="fluencia.svg" height="100" class="inject-example-1" id="inject-image-1">
+          </div>
+          <div style="width: 300px; float: right">
+            <img src="fluencia.svg" height="100" class="inject-example-1" id="inject-image-2">
+          </div>
+        </p>
+        <script>
+          var images = document.querySelectorAll('img.inject-example-1');
 
-		<section>
-			<section>
-				<h2>Animation</h2>
-				<p>
+          SVGInjector(images);
+        </script>
+      </section>
+    </section>
 
-				</p>
-			</section>
-			<section>
-				<h2>CSS</h2>
-			</section>
-			<section>
-				<h2>SVG.js</h2>
-			</section>
-		</section>
+    <!-- <section>
+      <section>
+        <h2>Advanced Feature</h2>
+      </section>
+      <section>
+        <h2>Clip</h2>
+      </section>
+      <section>
+        <h2>Mask</h2>
+      </section>
+    </section> -->
 
-		<section>
-			<h2>Browser Compatibility</h2>
-			<h3>IE 9+</h3>
-		</section>
+    <section>
+      <section>
+        <h2>Animation</h2>
+        <p><a href="#" id="animation-button-1">Start</a></p>
+        <p>
+          <div id="animation-target-1"></div>
+        </p>
+        <script>
+        (function() {
+          var draw = SVG('animation-target-1').size(600, 100);
+          var circle = draw.circle(100).fill('#FFF');
 
-		<section>
-			<h1>THE END</h1>
-		</section>
+          $('#animation-button-1').on('click', function(event) {
+            circle.animate(500).move(500).after(function() {
+              circle.animate(500).move(0);
+            })
+            return false;
+          });
+        })();
+        </script>
+      </section>
+      <section>
+        <h2>Amazing Example</h2>
+        <p><a href="http://www.polygon.com/a/xbox-one-review" target="_blank">Xbox One Review | Polygon</a></p>
+      </section>
+    </section>
 
-	</div>
+    <section>
+      <h2>Libraries</h2>
+      <p>
+        <ul>
+          <li><a href="http://www.svgjs.com/">SVG.js</a> (Personal Favorite)</li>
+          <li><a href="http://snapsvg.io/">Snap.svg</a></li>
+          <li><a href="http://d3js.org/">D3.js</a></li>
+        </ul>
+      </p>
+    </section>
+
+    <section>
+      <h2>Browser Compatibility</h2>
+      <h3>IE 9+</h3>
+    </section>
+
+    <section>
+      <h1>THE END</h1>
+    </section>
+
+  </div>
 
 </div>
 
@@ -234,31 +501,31 @@ draw.path("M2.364,11.575c0,0.368,0.035,0.976-0.057,1.325 c-0.158,0.603-0.604,0.9
 
 <script>
 
-	// Full list of configuration options available here:
-	// https://github.com/hakimel/reveal.js#configuration
-	Reveal.initialize({
-		controls: true,
-		progress: true,
-		history: true,
-		center: true,
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
 
-		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-		transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 
-		// Parallax scrolling
-		// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-		// parallaxBackgroundSize: '2100px 900px',
+    // Parallax scrolling
+    // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+    // parallaxBackgroundSize: '2100px 900px',
 
-		// Optional libraries used to extend on reveal.js
-		dependencies: [
-			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-			{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-			{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-			{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-		]
-	});
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+      { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+      { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+  });
 
 </script>
 
